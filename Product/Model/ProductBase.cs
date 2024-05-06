@@ -1,25 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using Product.Interface;
 
 namespace Product.Model
 {
-    public class ProductBase : IProduct
+    /// <summary>
+    /// Асбтактный базовый класс можно 
+    /// и не использывать ,но я просто хочу сократить число строк 
+    /// </summary>
+    public  class ProductBase : IProduct
     {
-        public string Name {  get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public string ProductComposition { get; set; }
+        public decimal Price { get; set; }
 
-        public double Volume { get; set; }
+        public Type ProductTypes => GetType();
 
-        public double GetAlcoholPercentage()
+        public virtual double GetAlcoholPercentage()
         {
-            throw new NotImplementedException();
+            if (this is IAlcoholicProduct alcoholic) return alcoholic.AlcoholPercentage;
+            throw new NotImplementedException("IProduct не является алкогольной продукцией.");
         }
 
-        public int GetCookingTime()
+        public virtual int GetCookingTime()
         {
-            throw new NotImplementedException();
+            if (this is IInstantFood instant) return instant.CookingTime;
+            throw new NotImplementedException("IProduct не является продуктом быстрого приготовления.");
         }
     }
 }

@@ -1,10 +1,10 @@
 ﻿
+using Product.Interface;
+
 namespace Product.Model
 {
-
-    public class Water : IProduct
+    public class Water : ProductBase, IWaterProduct
     {
-        public string Name => "Water";
         public double Volume { get; }
 
         public Water(double volume)
@@ -12,14 +12,14 @@ namespace Product.Model
             Volume = volume;
         }
 
-        public double GetAlcoholPercentage()
+        public Water(string name, string description, string productComposition, decimal price, double volume)
+            : base()
         {
-            throw new NotImplementedException();
-        }
-
-        public int GetCookingTime()
-        {
-            throw new NotImplementedException();
+            Volume = volume;
+            Name = name;
+            Description = description;
+            ProductComposition = productComposition;
+            Price = price;
         }
     }
 }

@@ -9,33 +9,32 @@ class Program
        
 
         // Создаем воду
+      
         IProduct water = new Water(0.5);
 
         // Создаем  алкашку
-        IProduct alcohol = new AlcoholicProduct(0.7, 999); 
+        IProduct alcohol = new AlcoholicProduct(0.7, 999);
 
         // Создаем еду быстрого приготовления
-        IProduct instantFood = new InstantFood(0.2, 5); 
+        IProduct instantFood = new InstantFood(5); 
 
         // Создаем комбинированный продукт
-        IProduct mixedProduct = new MixedProduct(water, alcohol, instantFood);
+        IProduct mixedProduct = new MixedProduct
+            ("Продукт 1",
+            999,
+            " сейчас 3:32 часа",
+            "состав забыли",
+            water, alcohol, instantFood);//также можно подавть список params
 
-        // Выводим информацию о комбинированном продукте
-        Console.WriteLine($"Mixed Product: {mixedProduct.Name}");
-        Console.WriteLine($"Total Volume: {mixedProduct.Volume} liters");
 
-        double alcoholPercentage = mixedProduct.GetAlcoholPercentage();
-        if (alcoholPercentage > 0)
-        {
-            Console.WriteLine($"Alcohol Percentage: {alcoholPercentage}%");
-        }
+        Console.WriteLine($"Название :\t {mixedProduct.Name}");
+        Console.WriteLine($"Описание :\t{mixedProduct.Description}");
+        Console.WriteLine($"Цена :\t\t {mixedProduct.Price}");
+        Console.WriteLine($"Состав :\t {mixedProduct.ProductComposition}");
+        Console.WriteLine($"Градус :\t {mixedProduct.GetAlcoholPercentage()}%");
+        Console.WriteLine($"Ввремя готовки :\t {mixedProduct.GetCookingTime()}м");
 
-        
-        int cookingTime = mixedProduct.GetCookingTime();
-        if (cookingTime > 0)
-        {
-            Console.WriteLine($"Cooking Time: {cookingTime} minutes");
-        }
+
     }
 }
 

@@ -7,26 +7,26 @@ using System.Threading.Tasks;
 
 namespace Product.Model
 {
-    class AlcoholicProduct : IAlcoholicProduct
+    public class AlcoholicProduct : ProductBase, IAlcoholicProduct, IWaterProduct
     {
-        public string Name => "Alcoholic Beverage";
-        public double Volume { get; }
-        public double AlcoholPercentage { get; }
+        public double AlcoholPercentage { get; set; }
+        public double Volume { get; set; }
 
-        public AlcoholicProduct(double volume, double alcoholPercentage)
+        public AlcoholicProduct(double alcoholPercentage, double volume)
         {
-            Volume = volume;
             AlcoholPercentage = alcoholPercentage;
+            Volume = volume;
         }
 
-        public double GetAlcoholPercentage()
+        public AlcoholicProduct(string name, string description, string productComposition, decimal price, double alcoholPercentage, double volume)
+            : base()
         {
-            throw new NotImplementedException();
-        }
-
-        public int GetCookingTime()
-        {
-            throw new NotImplementedException();
+            AlcoholPercentage = alcoholPercentage;
+            Volume = volume;
+            Name = name;
+            Description = description;
+            ProductComposition = productComposition;
+            Price = price;
         }
     }
 }

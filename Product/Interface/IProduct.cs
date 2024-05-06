@@ -2,8 +2,11 @@
 {
     public interface IProduct
     {
-        string Name { get; }
-        double Volume { get; }
+        Type ProductTypes { get; }
+        string Name { get; set; }
+        string Description { get; set; }
+        string ProductComposition {get; set;}
+        decimal Price { get; set; }
 
         double GetAlcoholPercentage();
         int GetCookingTime();

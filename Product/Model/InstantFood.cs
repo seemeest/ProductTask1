@@ -8,26 +8,23 @@ using System.Threading.Tasks;
 namespace Product.Model
 {
 
-  public  class InstantFood : IInstantFood
+    public class InstantFood : ProductBase, IInstantFood
     {
-        public string Name => "Instant Food";
-        public double Volume { get; }
         public int CookingTime { get; }
 
-        public InstantFood(double volume, int cookingTime)
+        public InstantFood(int cookingTime)
         {
-            Volume = volume;
             CookingTime = cookingTime;
         }
 
-        public double GetAlcoholPercentage()
+        public InstantFood(string name, string description, string productComposition, decimal price, int cookingTime)
+            : base()
         {
-            throw new NotImplementedException();
-        }
-
-        public int GetCookingTime()
-        {
-            throw new NotImplementedException();
+            CookingTime = cookingTime;
+            Name = name;
+            Description = description;
+            ProductComposition = productComposition;
+            Price = price;
         }
     }
 }
