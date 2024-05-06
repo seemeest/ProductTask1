@@ -6,10 +6,7 @@ class Program
 {
     static void Main(string[] args)
     {
-       
-
         // Создаем воду
-      
         IProduct water = new Water(0.5);
 
         // Создаем  алкашку
@@ -33,8 +30,6 @@ class Program
         Console.WriteLine($"Состав :\t {mixedProduct.ProductComposition}");
         Console.WriteLine($"Градус :\t {mixedProduct.GetAlcoholPercentage()}%");
         Console.WriteLine($"Ввремя готовки :\t {mixedProduct.GetCookingTime()}м");
-
-
     }
 }
 

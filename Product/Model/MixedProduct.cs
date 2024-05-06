@@ -52,7 +52,5 @@ namespace Product.Model
             }
             throw new NotImplementedException("MixedProduct не является продуктом быстрого приготовления.");
         }
-
-     
     }
 }
